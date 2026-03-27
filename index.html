@@ -3,224 +3,410 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fisher College — AI Research Retreat Program</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Fisher College of Business — AI Conference Proceedings</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Libre+Franklin:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --scarlet: #bb0000;
-  --scarlet-deep: #960000;
-  --gray-9: #1b1f24;
-  --gray-7: #3a3f47;
-  --gray-5: #6b7280;
-  --gray-3: #b0b6c0;
-  --gray-1: #e8eaed;
-  --warm-bg: #faf9f6;
-  --card-bg: #ffffff;
-  --border: #e2e0db;
-  --shadow-m: 0 4px 20px rgba(27,31,36,0.07);
-  --radius: 8px;
-  --ease: cubic-bezier(0.4,0,0.2,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Outfit',sans-serif;background:var(--warm-bg);color:var(--gray-9);line-height:1.65;-webkit-font-smoothing:antialiased}
+  :root {
+    --scarlet: #bb0000;
+    --scarlet-deep: #960000;
+    --gray-9: #1b1f23;
+    --gray-7: #3a3f47;
+    --gray-5: #6b7280;
+    --gray-3: #b0b8c4;
+    --gray-1: #eef0f3;
+    --warm-bg: #faf9f7;
+    --white: #ffffff;
+    --card-border: #e2e0dc;
+    --shadow-s: 0 1px 4px rgba(27,31,35,0.06);
+    --shadow-m: 0 4px 20px rgba(27,31,35,0.08);
+    --shadow-l: 0 8px 40px rgba(27,31,35,0.10);
+    --radius: 8px;
+    --ease: cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Libre Franklin',sans-serif;background:var(--warm-bg);color:var(--gray-7);line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(187,0,0,0.12)}
 
-/* ── HEADER ── */
-header{background:var(--gray-9);color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,0.18)}
-.header-inner{max-width:1100px;margin:0 auto;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem}
-.brand{display:flex;align-items:center;gap:0.75rem}
-.brand-bar{width:4px;height:28px;background:var(--scarlet);border-radius:2px;flex-shrink:0}
-.brand h1{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;letter-spacing:-0.01em}
-.brand .sub{font-size:0.78rem;color:var(--gray-3);font-weight:400;letter-spacing:0.04em;text-transform:uppercase;margin-top:1px}
-.search-wrap{position:relative;width:280px}
-.search-wrap input{width:100%;padding:0.55rem 0.85rem 0.55rem 2.3rem;border-radius:6px;border:1.5px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#fff;font-family:'Outfit',sans-serif;font-size:0.88rem;transition:all 0.2s var(--ease)}
-.search-wrap input::placeholder{color:var(--gray-3)}
-.search-wrap input:focus{outline:none;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.1)}
-.search-wrap svg{position:absolute;left:0.7rem;top:50%;transform:translateY(-50%);color:var(--gray-3)}
+  .site-header{background:var(--gray-9);color:#fff;position:sticky;top:0;z-index:100}
+  .header-top{max-width:1100px;margin:0 auto;padding:1.3rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:0.1rem}
+  .brand-school{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:var(--gray-3)}
+  .brand-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;letter-spacing:-0.01em;line-height:1.25}
+  .brand-title .accent{color:var(--scarlet);font-weight:600}
 
-/* ── HERO ── */
-.hero{max-width:1100px;margin:0 auto;padding:3rem 2rem 1rem}
-.hero h2{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:400;letter-spacing:-0.02em;line-height:1.2;margin-bottom:0.5rem}
-.hero h2 em{font-style:italic;color:var(--scarlet)}
-.hero p{font-size:1.05rem;color:var(--gray-5);max-width:640px;line-height:1.7}
+  .nav-tabs{display:flex;gap:0;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden}
+  .nav-tab{padding:0.5rem 1.05rem;font-size:0.8rem;font-weight:600;color:var(--gray-3);background:none;border:none;cursor:pointer;transition:all 0.2s var(--ease);white-space:nowrap;font-family:inherit}
+  .nav-tab:hover{color:#fff;background:rgba(255,255,255,0.06)}
+  .nav-tab.active{color:#fff;background:var(--scarlet)}
+  .nav-tab .count{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.66rem;font-weight:500;margin-left:0.3rem;padding:0.08rem 0.38rem;border-radius:10px;background:rgba(255,255,255,0.12);vertical-align:1px}
+  .nav-tab.active .count{background:rgba(255,255,255,0.25)}
 
-/* ── TABS ── */
-.tabs{max-width:1100px;margin:1.75rem auto 0;padding:0 2rem;display:flex;gap:0.4rem;border-bottom:1.5px solid var(--border)}
-.tab{padding:0.65rem 1.3rem;font-weight:500;font-size:0.92rem;border:none;background:none;cursor:pointer;color:var(--gray-5);border-bottom:2.5px solid transparent;margin-bottom:-1.5px;transition:all 0.2s var(--ease);font-family:'Outfit',sans-serif;display:flex;align-items:center;gap:0.45rem}
-.tab:hover{color:var(--gray-7)}
-.tab.active{color:var(--scarlet);border-bottom-color:var(--scarlet)}
-.tab .badge{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:500;background:var(--gray-1);color:var(--gray-5);padding:0.1rem 0.45rem;border-radius:10px}
-.tab.active .badge{background:rgba(187,0,0,0.1);color:var(--scarlet)}
+  .hero{max-width:1100px;margin:0 auto;padding:2.8rem 2rem 1.2rem}
+  .hero-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--scarlet);margin-bottom:0.45rem}
+  .hero h2{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400;color:var(--gray-9);line-height:1.3;max-width:700px;margin-bottom:0.45rem}
+  .hero-sub{font-size:0.98rem;color:var(--gray-5);max-width:620px;line-height:1.65}
 
-/* ── CARDS ── */
-.content-area{max-width:1100px;margin:1.5rem auto 4rem;padding:0 2rem}
-.card-list{display:flex;flex-direction:column;gap:1rem}
-.card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.25s var(--ease)}
-.card:hover{box-shadow:var(--shadow-m);border-color:#d0cec8}
-.card-top{display:flex;align-items:stretch}
-.card-accent{width:5px;flex-shrink:0}
-.card-accent.presentation{background:var(--scarlet)}
-.card-accent.roundtable{background:#2563eb}
-.card-accent.poster{background:#16a34a}
-.card-content{padding:1.3rem 1.5rem;flex:1;min-width:0}
-.card-type{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem}
-.card-type.presentation{color:var(--scarlet)}
-.card-type.roundtable{color:#2563eb}
-.card-type.poster{color:#16a34a}
-.card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;line-height:1.35;margin-bottom:0.35rem;letter-spacing:-0.01em}
-.card-authors{font-size:0.88rem;color:var(--gray-5);margin-bottom:0.15rem;line-height:1.5}
-.card-presenter{font-size:0.82rem;color:var(--gray-7);font-weight:500;margin-bottom:0.7rem}
-.card-presenter a{color:var(--scarlet);text-decoration:none}
-.card-presenter a:hover{text-decoration:underline}
-.card-abstract{font-size:0.9rem;color:var(--gray-7);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:all 0.3s var(--ease)}
-.card-abstract.expanded{-webkit-line-clamp:unset;display:block}
-.expand-btn{border:none;background:none;color:var(--scarlet);font-weight:500;font-size:0.82rem;cursor:pointer;margin-top:0.4rem;padding:0;font-family:'Outfit',sans-serif;transition:color 0.2s}
-.expand-btn:hover{color:var(--scarlet-deep)}
-.result-count{font-size:0.85rem;color:var(--gray-5);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
-.empty{text-align:center;padding:3.5rem 2rem;color:var(--gray-5)}
-.empty h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gray-7);margin-bottom:0.3rem}
-.card{animation:fadeUp 0.35s var(--ease) both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .search-strip{max-width:1100px;margin:0.75rem auto 0;padding:0 2rem}
+  .search-wrap{position:relative;max-width:460px}
+  .search-wrap svg{position:absolute;left:0.85rem;top:50%;transform:translateY(-50%);color:var(--gray-3)}
+  .search-wrap input{width:100%;padding:0.6rem 1rem 0.6rem 2.4rem;border:1.5px solid var(--card-border);border-radius:8px;font-family:'Libre Franklin',sans-serif;font-size:0.88rem;color:var(--gray-9);background:var(--white);transition:border-color 0.2s}
+  .search-wrap input:focus{outline:none;border-color:var(--scarlet)}
+  .search-wrap input::placeholder{color:var(--gray-3)}
 
-@media(max-width:640px){
-  .header-inner{padding:1rem 1.25rem}
-  .search-wrap{width:100%}
-  .hero{padding:2rem 1.25rem 1rem}
-  .hero h2{font-size:1.7rem}
-  .tabs,.content-area{padding:0 1.25rem}
-  .card-content{padding:1rem 1.15rem}
-  .tab{padding:0.55rem 0.8rem;font-size:0.84rem}
-}
+  .section{max-width:1100px;margin:0 auto;padding:1.75rem 2rem 3rem;display:none}
+  .section.active{display:block}
+
+  .pres-card{background:var(--white);border:1px solid var(--card-border);border-radius:var(--radius);padding:1.5rem 1.7rem;margin-bottom:0.9rem;transition:box-shadow 0.25s var(--ease),transform 0.25s var(--ease);animation:fadeUp 0.35s var(--ease) both}
+  .pres-card:hover{box-shadow:var(--shadow-m);transform:translateY(-2px)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+  .card-type{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.63rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;padding:0.12rem 0.45rem;border-radius:3px;margin-bottom:0.55rem}
+  .card-type.presentation{background:#fef3f2;color:var(--scarlet)}
+  .card-type.roundtable{background:#f0f4ff;color:#2952a3}
+  .card-type.poster{background:#f0faf4;color:#1a7a42}
+
+  .pres-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--gray-9);line-height:1.35;margin-bottom:0.3rem}
+  .pres-card .authors{font-size:0.86rem;color:var(--gray-5);margin-bottom:0.12rem}
+  .pres-card .presenter{font-size:0.8rem;color:var(--scarlet-deep);font-weight:600;margin-bottom:0.6rem}
+  .pres-card .presenter a{color:inherit;text-decoration:none;border-bottom:1px dashed var(--scarlet-deep);transition:border-color 0.2s}
+  .pres-card .presenter a:hover{border-bottom-style:solid}
+  .pres-card .rt-role{font-size:0.76rem;color:var(--gray-5);font-weight:500;margin-bottom:0.1rem}
+
+  .abstract{font-size:0.88rem;color:var(--gray-7);line-height:1.72;position:relative;overflow:hidden;transition:max-height 0.4s var(--ease)}
+  .abstract.collapsed{max-height:4.3em}
+  .abstract.collapsed::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2em;background:linear-gradient(transparent,var(--white));pointer-events:none}
+  .read-more{display:inline-block;margin-top:0.35rem;font-size:0.8rem;font-weight:600;color:var(--scarlet);cursor:pointer;border:none;background:none;padding:0;font-family:inherit;transition:color 0.2s}
+  .read-more:hover{color:var(--scarlet-deep)}
+
+  .pres-card.roundtable-card{border-left:3px solid #4a6fa5}
+  .pres-card.poster-card{border-left:3px solid #1a7a42}
+
+  .empty-section{text-align:center;padding:3.5rem 2rem;color:var(--gray-5)}
+  .empty-section h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gray-7);margin-bottom:0.3rem}
+
+  .site-footer{max-width:1100px;margin:0 auto;padding:1.5rem 2rem 3rem;text-align:center;font-size:0.76rem;color:var(--gray-3);border-top:1px solid var(--card-border)}
+  .site-footer a{color:var(--scarlet);text-decoration:none}
+
+  @media(max-width:700px){
+    .header-top{padding:1rem 1.2rem}
+    .brand-title{font-size:1.1rem}
+    .nav-tabs{flex-wrap:wrap}
+    .hero{padding:1.8rem 1.2rem 1rem}
+    .hero h2{font-size:1.4rem}
+    .search-strip,.section{padding-left:1.2rem;padding-right:1.2rem}
+    .pres-card{padding:1.1rem 1.2rem}
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
+<header class="site-header">
+  <div class="header-top">
     <div class="brand">
-      <div class="brand-bar"></div>
-      <div>
-        <h1>Fisher AI Research Retreat</h1>
-        <div class="sub">Fisher College of Business &bull; Ohio State University</div>
-      </div>
+      <span class="brand-school">Fisher College of Business &middot; The Ohio State University</span>
+      <span class="brand-title">Fisher <span class="accent">AI</span> Research Retreat</span>
     </div>
-    <div class="search-wrap">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l4 4"/></svg>
-      <input type="text" id="search" placeholder="Search titles, authors, topics…" oninput="render()">
-    </div>
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-section="presentations" onclick="switchSection(this)">Presentations <span class="count" id="count-presentations">13</span></button>
+      <button class="nav-tab" data-section="roundtables" onclick="switchSection(this)">Roundtables <span class="count" id="count-roundtables">7</span></button>
+      <button class="nav-tab" data-section="posters" onclick="switchSection(this)">Posters <span class="count" id="count-posters">5</span></button>
+    </nav>
   </div>
 </header>
 
 <section class="hero">
-  <h2>Retreat <em>Program</em></h2>
-  <p>Browse abstracts from faculty presentations, AI roundtable discussions, and poster sessions.</p>
+  <div class="hero-label">Retreat Program</div>
 </section>
 
-<nav class="tabs" id="tabs">
-  <button class="tab active" data-tab="all" onclick="setTab(this)">All <span class="badge" id="badge-all"></span></button>
-  <button class="tab" data-tab="presentation" onclick="setTab(this)">Presentations <span class="badge" id="badge-presentation"></span></button>
-  <button class="tab" data-tab="roundtable" onclick="setTab(this)">Roundtables <span class="badge" id="badge-roundtable"></span></button>
-  <button class="tab" data-tab="poster" onclick="setTab(this)">Posters <span class="badge" id="badge-poster"></span></button>
-</nav>
+<div class="search-strip">
+  <div class="search-wrap">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>
+    <input type="text" id="search" placeholder="Search titles, authors, abstracts..." oninput="filterCards()">
+  </div>
+</div>
 
-<main class="content-area">
-  <div class="result-count" id="result-count"></div>
-  <div class="card-list" id="card-list"></div>
-</main>
+<div class="section active" id="sec-presentations"></div>
+<div class="section" id="sec-roundtables"></div>
+<div class="section" id="sec-posters"></div>
+
+<footer class="site-footer">
+  Fisher College of Business &middot; The Ohio State University
+</footer>
 
 <script>
-const DATA = [
-  // ── FACULTY PRESENTATIONS ──
-  {type:"presentation",title:"Extending the Expert Learner Framework for Co-Regulation with GenAI",authors:"Joreen Arigye, Victoria Macann, Maimuna Begum Kali, Terrance R. Campbell, Monique S. Ross",presenter:"Joreen Arigye",email:"arigye.1@osu.edu",abstract:"The rapid advancement of artificial intelligence has intensified the need for understanding, using, and critically evaluating AI systems. Many educational initiatives integrating AI focus primarily on technical competence rather than reflective understanding. This paper addresses that gap by proposing a reflective framework to help students critically examine their metacognitive processes while interacting with fast, immediate, and seemingly accurate generative AI outputs.\n\nGrounded in Ertmer and Newby\u2019s expert learner model, the extended framework aims to help students move beyond surface-level reliance on GenAI and toward critical engagement with AI technologies. In doing so, it supports the development of metacognitive strategies for ethical and responsible participation in an AI-driven world."},
-  {type:"presentation",title:"Impact of AI-Assisted Learning on Learning Engagement and Outcomes",authors:"Jun Li, Christian Blanco, Mi Kyong Newsom, Jane Jiang",presenter:"Christian Blanco",email:"blanco.58@osu.edu",abstract:"This project explores the potential benefits of using a generative AI-based learning assistant for college students. To demonstrate the broad impact of incorporating GenAI into higher education teaching and learning, the research team recruited instructors from more than 20 higher education institutions to participate in a large-scale randomized experiment.\n\nThe study investigates how AI-assisted learning may influence student engagement and learning outcomes across diverse institutional contexts."},
-  {type:"presentation",title:"Environmental Commitment in Crowdfunding: An Examination Using Artificial Intelligence",authors:"Wayne Fu, Guangzhi Shang, Vincent E. Castillo",presenter:"Vincent E. Castillo",email:"castillo.230@osu.edu",abstract:"This study investigates how a crowdfunding campaign\u2019s environmental commitment affects funding performance. Although such commitment is voluntary, prior literature suggests it may have positive effects. Using Kickstarter data, the authors take advantage of the platform\u2019s rollout of an environmental commitment section beginning in 2018 as a quasi-natural experiment.\n\nProject-level data are preprocessed with matching and instrumental variables to address endogeneity arising from the voluntary nature of disclosure. The study also applies semantic-based and LLM-based text analyses to examine the characteristics of environmental commitment.\n\nFindings suggest that offering an environmental commitment can help attract additional funding, and that LLM-based evaluation provides greater explanatory power regarding its effectiveness than semantic-based approaches."},
-  {type:"presentation",title:"Entrepreneurship, Experimentation, and Generative AI: Evidence from ChatGPT",authors:"Andrea Contigiani, Gavin Wang, Jiayi Bao",presenter:"Andrea Contigiani",email:"contigiani.1@osu.edu",abstract:"This study examines how the emergence of generative AI reshapes experimentation in early-stage ventures. Drawing on entrepreneurship and organizational learning research, the authors propose three mechanisms through which GenAI reduces the need for experimentation-related human capital: an efficiency channel, a precision channel, and a substitution channel.\n\nUsing the November 2022 release of ChatGPT as a technological shock, the authors construct a firm-month panel of more than 25,000 U.S. software ventures founded between 2018 and 2021. Ventures are classified as \u201cAI-ready\u201d based on whether their top management team had deep learning or machine learning expertise prior to ChatGPT\u2019s launch.\n\nUsing difference-in-differences and dynamic event-study designs, the study finds that AI-ready ventures grew faster overall after ChatGPT but allocated a smaller share of their workforce to experimentation-related roles. These findings suggest that GenAI may be shifting the entrepreneurial process away from traditional experimentation, with important implications for how early-stage ventures learn, allocate resources, and scale."},
-  {type:"presentation",title:"Understanding and Overcoming Consumer Resistance toward Adopting AI-Powered Mental Health Products",authors:"Jianna Jin, Grant Donnelly, Rebecca Reczek",presenter:"Grant Donnelly",email:"donnelly.177@osu.edu",abstract:"AI-powered digital mental health products have been promoted as private and accessible tools for seeking support. However, this research identifies an important barrier to adoption: consumers may infer that using AI-powered mental health tools signals a lack of real-life social support.\n\nAcross four studies, the authors show that consumers anticipate feeling that they lack sufficient human support if they were to use AI-powered mental health products\u2014an inference less likely to arise for AI-powered wellness products focused on physical health. This anticipated inference leads to negative self-perceptions, which in turn reduce adoption.\n\nThe study also identifies two interventions that can increase adoption: positioning AI-powered mental health tools as supplemental to existing relationships rather than substitutes for them, and framing them situationally (\u201cavailable when needed\u201d) to signal that use reflects context rather than chronic need."},
-  {type:"presentation",title:"Toward a Manipulable Taxonomy of Product-Specific Aesthetic Dimensions",authors:"Ethan Budge, Jeffrey Dotson",presenter:"Jeffrey Dotson",email:"dotson.83@osu.edu",abstract:"Text-to-image generation systems have the potential to transform product design by enabling rapid exploration of both functional and aesthetic design spaces. In the case of aesthetic manipulation, this requires a systematic understanding of which linguistic descriptors allow precise control over generated outputs.\n\nThis paper develops a methodology for constructing product-specific taxonomies of aesthetic descriptors grounded in three key constructs: applicability, prototypicality, and orthogonality. These constructs are measured through CLIP embedding shifts and validated through systematic image-generation experiments.\n\nThe authors find that aesthetic descriptors organize into higher-order dimensions, with only a subset offering the orthogonal manipulability necessary for design optimization. This framework enables designers to build product-specific aesthetic taxonomies that support both efficient exploration of design alternatives and effective optimization of consumer appeal."},
-  {type:"presentation",title:"Predicting Field Experiments with LLMs",authors:"William Wang, Yuheng Hu, Yingda Lu",presenter:"Yuheng Hu",email:"hu.3331@osu.edu",abstract:"Large language models have shown unprecedented capabilities in content generation, contextual understanding, and the simulation of human behavior. While prior work has examined LLMs\u2019 ability to simulate behavior in survey and laboratory settings, no prior study has systematically evaluated whether LLMs can simulate human behavior in field experiments.\n\nUsing a design science approach, this paper develops an automated LLM-based IT artifact that predicts the outcomes of field experiments. Applying the framework to 276 experiments covering a wide range of human behaviors from the economics literature yields a prediction accuracy of 78%.\n\nThe study also finds that prediction outcomes are either bimodal or highly skewed, and that field experiments involving complex social issues\u2014such as ethnicity, social norms, and ethical dilemmas\u2014pose significant challenges for prediction performance."},
-  {type:"presentation",title:"From Copy-Paste to Cognitive Lift: A Classroom Pilot of Structured AI Pedagogy in Entrepreneurship Education",authors:"Lori Kendall",presenter:"Lori Kendall",email:"kendall.185@osu.edu",abstract:"Generative AI is now embedded in undergraduate coursework, yet most classroom use remains unstructured, risking the offloading of critical thinking rather than fostering mastery. This pilot study tests a structured AI pedagogy in BUSMHR 2500 (Foundations of Entrepreneurship) at The Ohio State University with approximately 200 students.\n\nStudents are randomly assigned to one of four conditions: (1) generative assistance, (2) Socratic-prompt AI, (3) evidence-constrained AI, or (4) no-AI control. Students refine a 90-day venture launch sprint plan requiring opportunity validation, resource orchestration, stakeholder mapping, and defensible milestone design. They also complete a structured reasoning defense, peer evaluation via Kritik360, and brief pre- and post-measures.\n\nThe intervention operationalizes an AI-Scaffolded Learning (AI-SC) Ladder aligned with Laurillard\u2019s Conversational Framework and SAMR to shift AI use from substitution toward modification and redefinition in venture planning. Outcomes include rubric-based reasoning quality, defense performance, peer-review calibration, and writing-process metadata (VisibleAI). This pilot study establishes feasibility, instrument validity, and preliminary effect sizes to inform a 2026\u20132027 longitudinal study across entrepreneurship and innovation courses."},
-  {type:"presentation",title:"Beyond Keywords: How LLM-Powered Semantic Search Reshapes Product Discovery in Online Marketplaces",authors:"Santiago Gallino, Nil Karacaoglu, Antonio Moreno",presenter:"Nil Karacaoglu",email:"karacaoglu.2@osu.edu",abstract:"Online marketplaces depend on effective matching between customer queries and seller listings, yet keyword-based retrieval struggles when customer intent and product descriptions use different vocabulary. This study examines the impact of replacing lexical retrieval with LLM-based semantic embeddings in a large online marketplace.\n\nUsing a randomized field experiment covering approximately 1.2 million search sessions, the authors compare a keyword baseline, a title-based embedding model, and a title-plus-description embedding model. The experiment is triggered only when the keyword engine returns no exact match, isolating settings where vocabulary gaps are most salient.\n\nSemantic search changes behavior throughout the search journey. Treated users submit fewer but longer queries, browse more products, and are more likely to click. Conversion probability increases by up to 1.8%. Product discovery also shifts: users exposed to semantic retrieval browse and purchase items with fewer reviews and greater product complexity, without changes to prices, assortment, or interface.\n\nThe findings provide causal evidence that search algorithms are not merely retrieval tools, but operational levers that shape demand allocation by influencing how customers search, what they see, and what they buy."},
-  {type:"presentation",title:"Generative AI as a Bridge in Evidence-Based Management",authors:"Hun Whee Lee, Seunghyun Bae, Hyunwoo Park, Taesup Kim",presenter:"Hun Whee Lee",email:"lee.7313@osu.edu",abstract:"This paper argues that the science\u2013practice gap in management partly reflects a comprehension problem: academic research is often too technical and difficult for practitioners to use quickly. The paper proposes that multimodal LLMs\u2014tools that provide chat, audio, video, and infographics\u2014may help bridge this gap by making scholarly evidence more accessible and easier to apply.\n\nThe project explores how generative AI can support evidence-based management by translating research into formats that are more usable for practitioners."},
-  {type:"presentation",title:"Collaborative Intelligence: Reconstructing the Invisible Consumer from Fragmented Survey Data",authors:"Jiyeon Hong, Alice Li, Qing Liu",presenter:"Alice Li",email:"li.815@osu.edu",abstract:"This paper introduces a unified generative multi-task framework for reconstructing coherent consumer representations from fragmented and partially observed survey data, allowing managers to better understand consumer segments when information is distributed across heterogeneous survey modules.\n\nBuilt on BART, the framework converts diverse survey responses into a unified semi-structured textual representation, enabling heterogeneous survey information to be analyzed jointly without forcing responses into a single fixed feature vector. To align representation learning with managerial objectives, the model jointly generates consumer profile summaries and predicts both satisfaction and subsequent purchase behavior.\n\nThe study also examines the structural properties of the learned latent space under simulated information fragmentation and introduces a narrative-anchored reconstruction procedure that regularizes thin-profile consumers toward locally coherent regions of the representation space. The framework is demonstrated using survey data from more than 13,000 creative software users in the United States and Japan."},
-  {type:"presentation",title:"Investment-Based Costs of Equity",authors:"Andrei S. Goncalves, Yicheng Liu, Chen Xue, Lu Zhang",presenter:"Lu Zhang",email:"zhanglu@fisher.osu.edu",abstract:"This paper develops the q5-characteristics model for estimating costs of equity as out-of-sample forecasts from cross-sectional regressions. The model performs competitively in evaluation tests and outperforms the accounting-based implied cost of equity in predicting cross-sectional returns.\n\nThe q5-characteristics cost of equity is precise at the industry level, aligned with average factor premiums, and characterized by a flat equity term structure. Its firm-level distribution is weakly left-skewed, whereas the accounting-based cost of equity is weakly right-skewed. However, the accounting-based measure performs better in time-series predictability. Factor models perform poorly, and random forest methods improve on the q5-characteristics model only modestly."},
-  {type:"presentation",title:"Who Sets the Price? The Vertical Origins of Uniform Pricing",authors:"Alvin Chen, Leandro Sanz, Michael Wittry",presenter:"Michael Wittry",email:"wittry.2@osu.edu",abstract:"Manufacturers, not retailers, are the primary source of uniform pricing in retail markets. Using a novel match of manufacturers to product-level scanner data spanning 1.83 billion store-month observations, this study decomposes retail price variation into manufacturer and retailer components and shows that manufacturer identity is the dominant source of pricing variation, explaining several times more than retailer identity across every specification.\n\nThe authors confirm this finding causally using manufacturers\u2019 differential exposure to generative AI as a natural experiment. When manufacturer-side information frictions decline, prices fall by approximately 5%, geographic price dispersion increases, repricing frequency rises, and prices become more responsive to local economic conditions\u2014even after absorbing retailer-by-time fixed effects. A comparison of manufacturer and retailer AI exposure shows that only manufacturer exposure drives these patterns.\n\nThese findings suggest that the pricing rigidities documented in prior literature are not immutable features of retail markets, but instead reflect manufacturer-side information frictions that technology can reduce."},
-
-  // ── AI ROUNDTABLES ──
-  {type:"roundtable",title:"Firms in the Age of AI",authors:"Sean Wan",presenter:"Sean Wan",email:"wan.207@osu.edu",role:"Professor, Marketing & Logistics",abstract:"Artificial intelligence is rapidly transforming how firms compete, organize operations, and coordinate activities across industries. As AI tools become embedded in forecasting, decision-making, logistics planning, product design, and customer relationship management, they are reshaping the boundaries of the firm and the sources of competitive advantage.\n\nThis shift raises fundamental questions about how firms create value, manage complexity, and interact with partners and competitors in increasingly data-driven ecosystems. The goal of this roundtable is to stimulate interdisciplinary conversation on the emerging theoretical and empirical opportunities surrounding firms in the age of AI."},
-  {type:"roundtable",title:"The Human Side of AI",authors:"Tracy Dumas",presenter:"Tracy Dumas",email:"dumas.35@osu.edu",role:"Professor, Management and Human Resources",abstract:"This discussion will focus on people\u2019s comfort with AI, their perceptions of how it will affect them, the opportunities it presents, and ways to mitigate potential harm."},
-  {type:"roundtable",title:"The Evolving Role of AI in Financial Services",authors:"Yufeng Wu",presenter:"Yufeng Wu",email:"wu.6251@osu.edu",role:"Associate Professor, Finance",abstract:"This roundtable focuses on how AI tools can help consumers make better spending, saving, and investment decisions. We will also discuss how financial intermediaries\u2014such as banks, fintech platforms, and asset managers\u2014may leverage AI to provide personalized financial guidance and improve financial outcomes."},
-  {type:"roundtable",title:"AI Tools for Academic Research: What\u2019s Actually Useful?",authors:"Jane Jiang",presenter:"Jane Jiang",email:"jiang.3186@osu.edu",role:"Assistant Professor, Operations and Business Analytics",abstract:"AI tools are rapidly changing how researchers search for literature, analyze data, write code, and generate ideas. This roundtable will discuss practical ways scholars are currently using AI tools in their research workflows, as well as open questions about reliability, ethics, and best practices."},
-  {type:"roundtable",title:"Label Noise: Challenges and Solutions",authors:"Waleed Muhanna",presenter:"Waleed Muhanna",email:"muhanna.1@osu.edu",role:"Professor, Accounting & Management Information Systems",abstract:"Real-world machine learning rarely enjoys the luxury of perfectly labeled training data. In practice, training labels are often noisy because of human error, resource limitations, ambiguity, annotator disagreement, and domain uncertainty.\n\nThis roundtable will examine the landscape of noisy-label learning, including the fundamental challenges posed by different types of label noise, as well as methods for label-noise reduction and robust training strategies."},
-  {type:"roundtable",title:"From Automation to Augmentation: Designing Human-AI Systems for Teaching and Learning",authors:"Zac Patterson",presenter:"Zac Patterson",email:"patterson.957@osu.edu",role:"Assistant Director of Research, The Drake Institute for Teaching and Learning",abstract:"This roundtable explores how human expertise and AI capabilities can be intentionally designed to work together in teaching and learning."},
-  {type:"roundtable",title:"From Tool to Teammate: Creative Uses of AI for Action Learning in the Classroom",authors:"Deborah Mitchell",presenter:"Deborah Mitchell",email:"mitchell.1120@osu.edu",role:"Clinical Associate Professor, Marketing & Logistics",abstract:"This roundtable explores creative and pedagogically sound uses of AI to enhance action learning, where students engage with real-world problems, projects, clients, and decision-making contexts. Rather than focusing on AI as a shortcut or replacement for student work, the session emphasizes AI as a catalyst for deeper learning\u2014supporting reflection, iteration, experimentation, and insight generation.\n\nParticipants will share examples, challenges, and open questions related to integrating AI into live cases, client projects, experiential assignments, and team-based learning environments. The discussion will also look ahead to questions such as: How might AI enable new forms of action learning that were previously impractical or impossible? What open research or pedagogical questions should the academic community be exploring next in the context of AI and action learning?"},
+const presentations = [
+  {
+    title: "Extending the Expert Learner Framework for Co-Regulation with GenAI",
+    authors: "Joreen Arigye, Victoria Macann, Maimuna Begum Kali, Terrance R. Campbell, Monique S. Ross",
+    presenter: "Joreen Arigye", email: "arigye.1@osu.edu",
+    abstract: "The rapid advancement of artificial intelligence has intensified the need for understanding, using, and critically evaluating AI systems. Many educational initiatives integrating AI focus primarily on technical competence rather than reflective understanding. This paper addresses that gap by proposing a reflective framework to help students critically examine their metacognitive processes while interacting with fast, immediate, and seemingly accurate generative AI outputs.\n\nGrounded in Ertmer and Newby\u2019s expert learner model, the extended framework aims to help students move beyond surface-level reliance on GenAI and toward critical engagement with AI technologies. In doing so, it supports the development of metacognitive strategies for ethical and responsible participation in an AI-driven world."
+  },
+  {
+    title: "Impact of AI-Assisted Learning on Learning Engagement and Outcomes",
+    authors: "Jun Li, Christian Blanco, Mi Kyong Newsom, Jane Jiang",
+    presenter: "Christian Blanco", email: "blanco.58@osu.edu",
+    abstract: "This project explores the potential benefits of using a generative AI-based learning assistant for college students. To demonstrate the broad impact of incorporating GenAI into higher education teaching and learning, the research team recruited instructors from more than 20 higher education institutions to participate in a large-scale randomized experiment.\n\nThe study investigates how AI-assisted learning may influence student engagement and learning outcomes across diverse institutional contexts."
+  },
+  {
+    title: "Environmental Commitment in Crowdfunding: An Examination Using Artificial Intelligence",
+    authors: "Wayne Fu, Guangzhi Shang, Vincent E. Castillo",
+    presenter: "Vincent E. Castillo", email: "castillo.230@osu.edu",
+    abstract: "This study investigates how a crowdfunding campaign\u2019s environmental commitment affects funding performance. Although such commitment is voluntary, prior literature suggests it may have positive effects. Using Kickstarter data, the authors take advantage of the platform\u2019s rollout of an environmental commitment section beginning in 2018 as a quasi-natural experiment.\n\nProject-level data are preprocessed with matching and instrumental variables to address endogeneity arising from the voluntary nature of disclosure. The study also applies semantic-based and LLM-based text analyses to examine the characteristics of environmental commitment.\n\nFindings suggest that offering an environmental commitment can help attract additional funding, and that LLM-based evaluation provides greater explanatory power regarding its effectiveness than semantic-based approaches."
+  },
+  {
+    title: "Entrepreneurship, Experimentation, and Generative AI: Evidence from ChatGPT",
+    authors: "Andrea Contigiani, Gavin Wang, Jiayi Bao",
+    presenter: "Andrea Contigiani", email: "contigiani.1@osu.edu",
+    abstract: "This study examines how the emergence of generative AI reshapes experimentation in early-stage ventures. Drawing on entrepreneurship and organizational learning research, the authors propose three mechanisms through which GenAI reduces the need for experimentation-related human capital: an efficiency channel, a precision channel, and a substitution channel.\n\nUsing the November 2022 release of ChatGPT as a technological shock, the authors construct a firm-month panel of more than 25,000 U.S. software ventures founded between 2018 and 2021. Ventures are classified as \u201cAI-ready\u201d based on whether their top management team had deep learning or machine learning expertise prior to ChatGPT\u2019s launch.\n\nUsing difference-in-differences and dynamic event-study designs, the study finds that AI-ready ventures grew faster overall after ChatGPT but allocated a smaller share of their workforce to experimentation-related roles. These findings suggest that GenAI may be shifting the entrepreneurial process away from traditional experimentation, with important implications for how early-stage ventures learn, allocate resources, and scale."
+  },
+  {
+    title: "Understanding and Overcoming Consumer Resistance toward Adopting AI-Powered Mental Health Products",
+    authors: "Jianna Jin, Grant Donnelly, Rebecca Reczek",
+    presenter: "Grant Donnelly", email: "donnelly.177@osu.edu",
+    abstract: "AI-powered digital mental health products have been promoted as private and accessible tools for seeking support. However, this research identifies an important barrier to adoption: consumers may infer that using AI-powered mental health tools signals a lack of real-life social support.\n\nAcross four studies, the authors show that consumers anticipate feeling that they lack sufficient human support if they were to use AI-powered mental health products\u2014an inference less likely to arise for AI-powered wellness products focused on physical health. This anticipated inference leads to negative self-perceptions, which in turn reduce adoption.\n\nThe study also identifies two interventions that can increase adoption: positioning AI-powered mental health tools as supplemental to existing relationships rather than substitutes for them, and framing them situationally (\u201cavailable when needed\u201d) to signal that use reflects context rather than chronic need."
+  },
+  {
+    title: "Toward a Manipulable Taxonomy of Product-Specific Aesthetic Dimensions",
+    authors: "Ethan Budge, Jeffrey Dotson",
+    presenter: "Jeffrey Dotson", email: "dotson.83@osu.edu",
+    abstract: "Text-to-image generation systems have the potential to transform product design by enabling rapid exploration of both functional and aesthetic design spaces. In the case of aesthetic manipulation, this requires a systematic understanding of which linguistic descriptors allow precise control over generated outputs.\n\nThis paper develops a methodology for constructing product-specific taxonomies of aesthetic descriptors grounded in three key constructs: applicability, prototypicality, and orthogonality. These constructs are measured through CLIP embedding shifts and validated through systematic image-generation experiments.\n\nThe authors find that aesthetic descriptors organize into higher-order dimensions, with only a subset offering the orthogonal manipulability necessary for design optimization. This framework enables designers to build product-specific aesthetic taxonomies that support both efficient exploration of design alternatives and effective optimization of consumer appeal."
+  },
+  {
+    title: "Predicting Field Experiments with LLMs",
+    authors: "William Wang, Yuheng Hu, Yingda Lu",
+    presenter: "Yuheng Hu", email: "hu.3331@osu.edu",
+    abstract: "Large language models have shown unprecedented capabilities in content generation, contextual understanding, and the simulation of human behavior. While prior work has examined LLMs\u2019 ability to simulate behavior in survey and laboratory settings, no prior study has systematically evaluated whether LLMs can simulate human behavior in field experiments.\n\nUsing a design science approach, this paper develops an automated LLM-based IT artifact that predicts the outcomes of field experiments. Applying the framework to 276 experiments covering a wide range of human behaviors from the economics literature yields a prediction accuracy of 78%.\n\nThe study also finds that prediction outcomes are either bimodal or highly skewed, and that field experiments involving complex social issues\u2014such as ethnicity, social norms, and ethical dilemmas\u2014pose significant challenges for prediction performance."
+  },
+  {
+    title: "From Copy-Paste to Cognitive Lift: A Classroom Pilot of Structured AI Pedagogy in Entrepreneurship Education",
+    authors: "Lori Kendall",
+    presenter: "Lori Kendall", email: "kendall.185@osu.edu",
+    abstract: "Generative AI is now embedded in undergraduate coursework, yet most classroom use remains unstructured, risking the offloading of critical thinking rather than fostering mastery. This pilot study tests a structured AI pedagogy in BUSMHR 2500 (Foundations of Entrepreneurship) at The Ohio State University with approximately 200 students.\n\nStudents are randomly assigned to one of four conditions: (1) generative assistance, (2) Socratic-prompt AI, (3) evidence-constrained AI, or (4) no-AI control. Students refine a 90-day venture launch sprint plan requiring opportunity validation, resource orchestration, stakeholder mapping, and defensible milestone design. They also complete a structured reasoning defense, peer evaluation via Kritik360, and brief pre- and post-measures.\n\nThe intervention operationalizes an AI-Scaffolded Learning (AI-SC) Ladder aligned with Laurillard\u2019s Conversational Framework and SAMR to shift AI use from substitution toward modification and redefinition in venture planning. Outcomes include rubric-based reasoning quality, defense performance, peer-review calibration, and writing-process metadata (VisibleAI). This pilot study establishes feasibility, instrument validity, and preliminary effect sizes to inform a 2026\u20132027 longitudinal study across entrepreneurship and innovation courses."
+  },
+  {
+    title: "Beyond Keywords: How LLM-Powered Semantic Search Reshapes Product Discovery in Online Marketplaces",
+    authors: "Santiago Gallino, Nil Karacaoglu, Antonio Moreno",
+    presenter: "Nil Karacaoglu", email: "karacaoglu.2@osu.edu",
+    abstract: "Online marketplaces depend on effective matching between customer queries and seller listings, yet keyword-based retrieval struggles when customer intent and product descriptions use different vocabulary. This study examines the impact of replacing lexical retrieval with LLM-based semantic embeddings in a large online marketplace.\n\nUsing a randomized field experiment covering approximately 1.2 million search sessions, the authors compare a keyword baseline, a title-based embedding model, and a title-plus-description embedding model. The experiment is triggered only when the keyword engine returns no exact match, isolating settings where vocabulary gaps are most salient.\n\nSemantic search changes behavior throughout the search journey. Treated users submit fewer but longer queries, browse more products, and are more likely to click. Conversion probability increases by up to 1.8%. Product discovery also shifts: users exposed to semantic retrieval browse and purchase items with fewer reviews and greater product complexity, without changes to prices, assortment, or interface.\n\nThe findings provide causal evidence that search algorithms are not merely retrieval tools, but operational levers that shape demand allocation by influencing how customers search, what they see, and what they buy."
+  },
+  {
+    title: "Generative AI as a Bridge in Evidence-Based Management",
+    authors: "Hun Whee Lee, Seunghyun Bae, Hyunwoo Park, Taesup Kim",
+    presenter: "Hun Whee Lee", email: "lee.7313@osu.edu",
+    abstract: "This paper argues that the science\u2013practice gap in management partly reflects a comprehension problem: academic research is often too technical and difficult for practitioners to use quickly. The paper proposes that multimodal LLMs\u2014tools that provide chat, audio, video, and infographics\u2014may help bridge this gap by making scholarly evidence more accessible and easier to apply.\n\nThe project explores how generative AI can support evidence-based management by translating research into formats that are more usable for practitioners."
+  },
+  {
+    title: "Collaborative Intelligence: Reconstructing the Invisible Consumer from Fragmented Survey Data",
+    authors: "Jiyeon Hong, Alice Li, Qing Liu",
+    presenter: "Alice Li", email: "li.815@osu.edu",
+    abstract: "This paper introduces a unified generative multi-task framework for reconstructing coherent consumer representations from fragmented and partially observed survey data, allowing managers to better understand consumer segments when information is distributed across heterogeneous survey modules.\n\nBuilt on BART, the framework converts diverse survey responses into a unified semi-structured textual representation, enabling heterogeneous survey information to be analyzed jointly without forcing responses into a single fixed feature vector. To align representation learning with managerial objectives, the model jointly generates consumer profile summaries and predicts both satisfaction and subsequent purchase behavior.\n\nThe study also examines the structural properties of the learned latent space under simulated information fragmentation and introduces a narrative-anchored reconstruction procedure that regularizes thin-profile consumers toward locally coherent regions of the representation space. The framework is demonstrated using survey data from more than 13,000 creative software users in the United States and Japan."
+  },
+  {
+    title: "Investment-Based Costs of Equity",
+    authors: "Andrei S. Goncalves, Yicheng Liu, Chen Xue, Lu Zhang",
+    presenter: "Lu Zhang", email: "zhanglu@fisher.osu.edu",
+    abstract: "This paper develops the q5-characteristics model for estimating costs of equity as out-of-sample forecasts from cross-sectional regressions. The model performs competitively in evaluation tests and outperforms the accounting-based implied cost of equity in predicting cross-sectional returns.\n\nThe q5-characteristics cost of equity is precise at the industry level, aligned with average factor premiums, and characterized by a flat equity term structure. Its firm-level distribution is weakly left-skewed, whereas the accounting-based cost of equity is weakly right-skewed. However, the accounting-based measure performs better in time-series predictability. Factor models perform poorly, and random forest methods improve on the q5-characteristics model only modestly."
+  },
+  {
+    title: "Who Sets the Price? The Vertical Origins of Uniform Pricing",
+    authors: "Alvin Chen, Leandro Sanz, Michael Wittry",
+    presenter: "Michael Wittry", email: "wittry.2@osu.edu",
+    abstract: "Manufacturers, not retailers, are the primary source of uniform pricing in retail markets. Using a novel match of manufacturers to product-level scanner data spanning 1.83 billion store-month observations, this study decomposes retail price variation into manufacturer and retailer components and shows that manufacturer identity is the dominant source of pricing variation, explaining several times more than retailer identity across every specification.\n\nThe authors confirm this finding causally using manufacturers\u2019 differential exposure to generative AI as a natural experiment. When manufacturer-side information frictions decline, prices fall by approximately 5%, geographic price dispersion increases, repricing frequency rises, and prices become more responsive to local economic conditions\u2014even after absorbing retailer-by-time fixed effects. A comparison of manufacturer and retailer AI exposure shows that only manufacturer exposure drives these patterns.\n\nThese findings suggest that the pricing rigidities documented in prior literature are not immutable features of retail markets, but instead reflect manufacturer-side information frictions that technology can reduce."
+  }
 ];
 
-let activeTab = 'all';
+const roundtables = [
+  {
+    title: "Firms in the Age of AI",
+    presenter: "Sean Wan", email: "wan.207@osu.edu",
+    role: "Professor, Marketing & Logistics",
+    abstract: "Artificial intelligence (AI) is rapidly transforming how firms compete, organize operations, and coordinate activities across industries. As AI tools become embedded in forecasting, decision-making, logistics planning, product design, and customer relationship management, they are reshaping the boundaries of the firm and the sources of competitive advantage. This shift raises fundamental questions about how firms create value, manage complexity, and interact with partners and competitors in increasingly data-driven ecosystems. The goal of this roundtable is to stimulate interdisciplinary conversation on the emerging theoretical and empirical opportunities surrounding firms in the age of AI."
+  },
+  {
+    title: "The Human Side of AI",
+    presenter: "Tracy Dumas", email: "dumas.35@osu.edu",
+    role: "Professor, Management and Human Resources",
+    abstract: "This discussion will focus on people\u2019s comfort with AI, their perceptions of how it will affect them, the opportunities it presents, and ways to mitigate potential harm."
+  },
+  {
+    title: "The Evolving Role of AI in Financial Services",
+    presenter: "Yufeng Wu", email: "wu.6251@osu.edu",
+    role: "Associate Professor, Finance",
+    abstract: "This roundtable focuses on how AI tools can help consumers make better spending, saving, and investment decisions. We will also discuss how financial intermediaries\u2014such as banks, fintech platforms, and asset managers\u2014may leverage AI to provide personalized financial guidance and improve financial outcomes."
+  },
+  {
+    title: "AI Tools for Academic Research: What\u2019s Actually Useful?",
+    presenter: "Jane Jiang", email: "jiang.3186@osu.edu",
+    role: "Assistant Professor, Operations and Business Analytics",
+    abstract: "AI tools are rapidly changing how researchers search for literature, analyze data, write code, and generate ideas. This roundtable will discuss practical ways scholars are currently using AI tools in their research workflows, as well as open questions about reliability, ethics, and best practices."
+  },
+  {
+    title: "Label Noise: Challenges and Solutions",
+    presenter: "Waleed Muhanna", email: "muhanna.1@osu.edu",
+    role: "Professor, Accounting & Management Information Systems",
+    abstract: "Real-world machine learning rarely enjoys the luxury of perfectly labeled training data. In practice, training labels are often noisy because of human error, resource limitations, ambiguity, annotator disagreement, and domain uncertainty. This roundtable will examine the landscape of noisy-label learning, including the fundamental challenges posed by different types of label noise, as well as methods for label-noise reduction and robust training strategies."
+  },
+  {
+    title: "From Automation to Augmentation: Designing Human-AI Systems for Teaching and Learning",
+    presenter: "Zac Patterson", email: "patterson.957@osu.edu",
+    role: "Assistant Director of Research, The Drake Institute for Teaching and Learning",
+    abstract: "This roundtable explores how human expertise and AI capabilities can be intentionally designed to work together in teaching and learning."
+  },
+  {
+    title: "From Tool to Teammate: Creative Uses of AI for Action Learning in the Classroom",
+    presenter: "Deborah Mitchell", email: "mitchell.1120@osu.edu",
+    role: "Clinical Associate Professor, Marketing & Logistics",
+    abstract: "This roundtable explores creative and pedagogically sound uses of AI to enhance action learning, where students engage with real-world problems, projects, clients, and decision-making contexts. Rather than focusing on AI as a shortcut or replacement for student work, the session emphasizes AI as a catalyst for deeper learning\u2014supporting reflection, iteration, experimentation, and insight generation.\n\nParticipants will share examples, challenges, and open questions related to integrating AI into live cases, client projects, experiential assignments, and team-based learning environments. The discussion will also look ahead to questions such as: How might AI enable new forms of action learning that were previously impractical or impossible? What open research or pedagogical questions should the academic community be exploring next in the context of AI and action learning?"
+  }
+];
 
-function setTab(btn) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  activeTab = btn.dataset.tab;
-  render();
+const posters = [
+  {
+    title: "Demand Interactions and Supply Chain Planning Performance: Cross-Product and Cross-Location Information in Machine Learning Based Forecasting",
+    authors: "Rang (Rae) Gong, Walter Zinn, Xiang (Sean) Wan, Keely Croxton",
+    email: "gong.611@osu.edu",
+    abstract: "This study examines how information from related products and nearby locations can improve demand forecasting in supply chain planning. Existing methods often rely mainly on an item\u2019s own demand history and may miss broader demand interactions. We develop a Transformer-based approach that captures substitution and complementarity across products, as well as competitive relationships across nearby locations. Using data from a healthcare distribution company, we show that the model outperforms standard forecasting benchmarks. The results suggest that incorporating these broader demand relationships can improve forecasting accuracy and provide useful managerial insights."
+  },
+  {
+    title: "AI-Assisted Triage in Asynchronous Healthcare Queues: Response Delays and Downstream Emergency Care Utilization",
+    authors: "Mohamed Megahed, Nathan Craig, Jane Jiang, Aravind Chandrasekaran",
+    email: null,
+    abstract: "Delays in asynchronous healthcare communication can shift patients toward higher-cost care settings. In digital patient portals, patient-initiated requests enter provider inboxes and are managed under capacity constraints and competing demands. Because patients lack visibility into response timing, prolonged delays or non-response may prompt escalation to in-person care, including emergency department (ED) visits. We model these systems as decentralized service queues in which urgency is latent and must be inferred from unstructured patient messages. This makes prioritization necessary but fragile, as human triage is subject to inconsistency and workload-induced variability. Using data from a large U.S. health system, we show that unresolved messages are associated with a higher likelihood of ED utilization, with risk concentrated early after message initiation. We then leverage natural language processing to extract urgency signals from patient messages. By converting unstructured patient communication into actionable measures of urgency, AI augments human triage, supporting more consistent and scalable prioritization under congestion, where response delays shape behavior and misprioritization propagates downstream."
+  },
+  {
+    title: "If It\u2019s Easier, Why Do I Feel Worse? Impostor Thoughts Triggered By Generative AI Assistance",
+    authors: "Hanho Lee, Zixu Zhang, Hun Whee Lee, Sarah P. Doyle, Robert B. Lount, Jr.",
+    email: null,
+    abstract: "As generative artificial intelligence (AI) shifts from a peripheral tool to a core workplace collaborator, it not only transforms how tasks are completed but also potentially reshapes how employees perceive their own worth. Drawing on attribution theory and research on impostor thoughts, we examine how the usage of generative AI tools triggers workplace impostor thoughts and their downstream consequences. Using 550 daily observations from 126 employees (Study 1; experience sampling methodology) and an online experiment from 277 working adults (Study 2; pre-registered experiment), our findings reveal that AI usage is positively associated with impostor thoughts, with this relationship intensifying when employees report lower task efficacy. Moreover, we document that impostor thoughts serve as a key mechanism linking AI usage to decision paralysis and feelings of inauthenticity. These findings highlight the psychological implications of AI integration and underscore the crucial role of efficacy in shaping employees\u2019 experiences and interactions with AI in the workplace."
+  },
+  {
+    title: "Narrative Sensegiving and AI Engagement in Rural Entrepreneurial Ecosystems",
+    authors: "Nkemdilim Chibuko",
+    email: null,
+    abstract: "A growing proportion of small businesses in the United States report experimenting with artificial intelligence (AI) tools to improve marketing, customer engagement, and operational efficiency. At the same time, public attitudes toward AI remain characterized by ambivalence and concern, with many Americans perceiving risks related to job displacement, privacy, and diminished human control. These tensions suggest that AI adoption is not solely a technical challenge, but an interpretive process shaped by uncertainty, legitimacy, and identity. Such dynamics may be particularly salient in rural communities, where small and medium enterprises serve as economic anchors and symbols of local resilience. When AI is perceived as misaligned with community values or economic realities, rural businesses may face distinct challenges in accepting emerging technologies. Drawing on qualitative analysis of 51 entrepreneurial success stories and interviews with regional institutional stakeholders, this study examines how storytelling functions as a mechanism of sensegiving that shapes how local business owners interpret the legitimacy, risks, and relevance of AI and other emerging digital technologies within a rural innovation ecosystem."
+  },
+  {
+    title: "Gamified, Artificial-Intelligence-aided Lifestyle Change (GAIL)",
+    authors: "Amaris Williams, Donya Nemati, Roberto Benzo, Joshua J. Joseph, Jennifer Shrodes, Sachin Kumar",
+    email: null,
+    abstract: "Lifestyle change is difficult to maintain. Gamification is a promising method of reviving flagging motivation among patients attempting lifestyle change. Gamification requires real-time assessment of target activities: diet and exercise. Physical activity can be objectively measured in real time, but diet currently can not. Artificial intelligence (AI) chat bots can measure diet in a low-burden way in real time, then assess the diet and provide feedback to patients.\n\nFew health applications are created with input from end users, which leads to poor acceptability and utility. A co-created, gamified lifestyle-change application could revolutionize lifestyle change, dietary assessment, research, and clinical care.\n\nGamified, Artificial-Intelligence-aided Lifestyle change (GAIL) is a recently-funded project to co-create an AI-based application with the people who would use it. We will recruit clinicians, researchers, and patients (stakeholders) to provide feedback. Initial focus groups will inform the design of the GAIL application. Once a prototype has been developed, the stakeholders will iteratively review the prototype.\n\nAccomplishing the GAIL project will build the foundation for future research, improved clinical lifestyle-related care, low-burden and accurate dietary assessment, and successful lifestyle change, better quality of life, and increased longevity among patients."
+  }
+];
+
+function renderAll() {
+  renderPresentations();
+  renderRoundtables();
+  renderPosters();
 }
 
-function render() {
-  const q = document.getElementById('search').value.toLowerCase();
-  const filtered = DATA.filter(d => {
-    if (activeTab !== 'all' && d.type !== activeTab) return false;
-    if (q) {
-      const hay = (d.title + ' ' + d.authors + ' ' + d.presenter + ' ' + d.abstract).toLowerCase();
-      return hay.includes(q);
-    }
-    return true;
+function renderPresentations(filter) {
+  const el = document.getElementById('sec-presentations');
+  const q = (filter || '').toLowerCase();
+  const filtered = presentations.filter(p => {
+    if (!q) return true;
+    return (p.title + ' ' + p.authors + ' ' + p.presenter + ' ' + p.abstract).toLowerCase().includes(q);
   });
 
-  // update badges
-  const counts = {all: DATA.length, presentation:0, roundtable:0, poster:0};
-  DATA.forEach(d => counts[d.type]++);
-  Object.keys(counts).forEach(k => {
-    const el = document.getElementById('badge-' + k);
-    if (el) el.textContent = counts[k];
-  });
+  document.getElementById('count-presentations').textContent = filtered.length;
 
-  const rc = document.getElementById('result-count');
-  rc.textContent = q ? filtered.length + ' result' + (filtered.length !== 1 ? 's' : '') + ' found' : '';
-
-  const list = document.getElementById('card-list');
   if (filtered.length === 0) {
-    list.innerHTML = '<div class="empty"><h3>No results</h3><p>Try a different search term or category.</p></div>';
+    el.innerHTML = '<div style="text-align:center;padding:3rem 1rem;color:var(--gray-5)"><h3 style="font-family:Playfair Display,serif;font-size:1.15rem;color:var(--gray-7);margin-bottom:0.25rem">No matching presentations</h3><p>Try adjusting your search terms.</p></div>';
     return;
   }
 
-  list.innerHTML = filtered.map((d, i) => {
-    const typeLabel = d.type === 'presentation' ? 'Faculty Presentation'
-                    : d.type === 'roundtable' ? 'AI Roundtable'
-                    : 'Poster Session';
-    const roleInfo = d.role ? ' \u2014 ' + esc(d.role) : '';
-    return '<article class="card" style="animation-delay:' + (i * 0.04) + 's">' +
-      '<div class="card-top">' +
-        '<div class="card-accent ' + d.type + '"></div>' +
-        '<div class="card-content">' +
-          '<div class="card-type ' + d.type + '">' + typeLabel + '</div>' +
-          '<h3>' + esc(d.title) + '</h3>' +
-          '<div class="card-authors">' + esc(d.authors) + '</div>' +
-          '<div class="card-presenter">Presenter: ' + esc(d.presenter) + roleInfo + ' \u00B7 <a href="mailto:' + esc(d.email) + '">' + esc(d.email) + '</a></div>' +
-          '<div class="card-abstract" id="abs-' + i + '">' + esc(d.abstract).replace(/\n/g, '<br>') + '</div>' +
-          '<button class="expand-btn" onclick="toggleAbstract(' + i + ', this)">Read more \u2193</button>' +
-        '</div>' +
-      '</div>' +
-    '</article>';
-  }).join('');
+  el.innerHTML = filtered.map((p, i) => `
+    <div class="pres-card" style="animation-delay:${i * 0.04}s">
+      <div class="card-type presentation">Presentation</div>
+      <h3>${esc(p.title)}</h3>
+      <div class="authors">${esc(p.authors)}</div>
+      <div class="presenter">Presenter: <a href="mailto:${p.email}">${esc(p.presenter)}</a></div>
+      <div class="abstract collapsed" id="abs-p-${i}">${fmtAbs(p.abstract)}</div>
+      <button class="read-more" onclick="toggle('abs-p-${i}',this)">Read more</button>
+    </div>
+  `).join('');
 }
 
-function toggleAbstract(i, btn) {
-  const el = document.getElementById('abs-' + i);
-  const expanded = el.classList.toggle('expanded');
-  btn.textContent = expanded ? 'Show less \u2191' : 'Read more \u2193';
+function renderRoundtables(filter) {
+  const el = document.getElementById('sec-roundtables');
+  const q = (filter || '').toLowerCase();
+  const filtered = roundtables.filter(r => {
+    if (!q) return true;
+    return (r.title + ' ' + r.presenter + ' ' + r.role + ' ' + r.abstract).toLowerCase().includes(q);
+  });
+
+  document.getElementById('count-roundtables').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:3rem 1rem;color:var(--gray-5)"><h3 style="font-family:Playfair Display,serif;font-size:1.15rem;color:var(--gray-7);margin-bottom:0.25rem">No matching roundtables</h3><p>Try adjusting your search terms.</p></div>';
+    return;
+  }
+
+  el.innerHTML = filtered.map((r, i) => `
+    <div class="pres-card roundtable-card" style="animation-delay:${i * 0.04}s">
+      <div class="card-type roundtable">Roundtable</div>
+      <h3>${esc(r.title)}</h3>
+      <div class="rt-role">${esc(r.role)}</div>
+      <div class="presenter">Moderator: <a href="mailto:${r.email}">${esc(r.presenter)}</a></div>
+      <div class="abstract collapsed" id="abs-r-${i}">${fmtAbs(r.abstract)}</div>
+      <button class="read-more" onclick="toggle('abs-r-${i}',this)">Read more</button>
+    </div>
+  `).join('');
 }
 
-function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+function renderPosters(filter) {
+  const el = document.getElementById('sec-posters');
+  const q = (filter || '').toLowerCase();
+  const filtered = posters.filter(p => {
+    if (!q) return true;
+    return (p.title + ' ' + p.authors + ' ' + p.abstract).toLowerCase().includes(q);
+  });
 
-render();
+  document.getElementById('count-posters').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:3rem 1rem;color:var(--gray-5)"><h3 style="font-family:Playfair Display,serif;font-size:1.15rem;color:var(--gray-7);margin-bottom:0.25rem">No matching posters</h3><p>Try adjusting your search terms.</p></div>';
+    return;
+  }
+
+  el.innerHTML = filtered.map((p, i) => `
+    <div class="pres-card poster-card" style="animation-delay:${i * 0.04}s">
+      <div class="card-type poster">Poster</div>
+      <h3>${esc(p.title)}</h3>
+      <div class="authors">${esc(p.authors)}</div>
+      ${p.email ? '<div class="presenter">Contact: <a href="mailto:' + p.email + '">' + esc(p.email) + '</a></div>' : ''}
+      <div class="abstract collapsed" id="abs-po-${i}">${fmtAbs(p.abstract)}</div>
+      <button class="read-more" onclick="toggle('abs-po-${i}',this)">Read more</button>
+    </div>
+  `).join('');
+}
+
+function toggle(id, btn) {
+  const el = document.getElementById(id);
+  const collapsed = el.classList.toggle('collapsed');
+  btn.textContent = collapsed ? 'Read more' : 'Show less';
+}
+
+function switchSection(tab) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-' + tab.dataset.section).classList.add('active');
+}
+
+function filterCards() {
+  const q = document.getElementById('search').value;
+  renderPresentations(q);
+  renderRoundtables(q);
+  renderPosters(q);
+}
+
+function fmtAbs(text) {
+  return text.split('\n').filter(s => s.trim()).map(p => '<p style="margin-bottom:0.5em">' + esc(p) + '</p>').join('');
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+renderAll();
 </script>
 </body>
 </html>
