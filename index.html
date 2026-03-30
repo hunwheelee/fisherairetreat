@@ -109,7 +109,7 @@
     <nav class="nav-tabs">
       <button class="nav-tab active" data-section="presentations" onclick="switchSection(this)">Presentations <span class="count" id="count-presentations">13</span></button>
       <button class="nav-tab" data-section="roundtables" onclick="switchSection(this)">Roundtables <span class="count" id="count-roundtables">7</span></button>
-      <button class="nav-tab" data-section="posters" onclick="switchSection(this)">Posters <span class="count" id="count-posters">5</span></button>
+      <button class="nav-tab" data-section="posters" onclick="switchSection(this)">Posters <span class="count" id="count-posters">6</span></button>
     </nav>
   </div>
 </header>
@@ -203,9 +203,9 @@ const presentations = [
   },
   {
     title: "Investment-Based Costs of Equity",
-    authors: "Andrei S. Goncalves, Yicheng Liu, Chen Xue, Lu Zhang",
+    authors: "Yicheng Liu, Chen Xue, Lu Zhang",
     presenter: "Lu Zhang", email: "zhanglu@fisher.osu.edu",
-    abstract: "This paper develops the q5-characteristics model for estimating costs of equity as out-of-sample forecasts from cross-sectional regressions. The model performs competitively in evaluation tests and outperforms the accounting-based implied cost of equity in predicting cross-sectional returns.\n\nThe q5-characteristics cost of equity is precise at the industry level, aligned with average factor premiums, and characterized by a flat equity term structure. Its firm-level distribution is weakly left-skewed, whereas the accounting-based cost of equity is weakly right-skewed. However, the accounting-based measure performs better in time-series predictability. Factor models perform poorly, and random forest methods improve on the q5-characteristics model only modestly."
+    abstract: "The q5-characteristics model estimates costs of equity as Lewellen\u2019s (2015) out-of-sample forecasts from cross-sectional regressions. The q5-cost of equity is competitive in evaluation tests, outperforming the accounting implied cost of equity in predicting cross-sectional returns. The q5-cost of equity is precise at the industry level and aligned with average factor premiums. Its firm-level distribution is weakly left-skewed, whereas the accounting implied cost of equity is right-skewed. However, the accounting cost of equity outperforms in the time series. Factor models perform poorly in out-of-sample tests. Gradient-boosted trees improve on cross-sectional regressions, but not reliably."
   },
   {
     title: "Who Sets the Price? The Vertical Origins of Uniform Pricing",
@@ -290,6 +290,12 @@ const posters = [
     authors: "Amaris Williams, Donya Nemati, Roberto Benzo, Joshua J. Joseph, Jennifer Shrodes, Sachin Kumar",
     email: null,
     abstract: "Lifestyle change is difficult to maintain. Gamification is a promising method of reviving flagging motivation among patients attempting lifestyle change. Gamification requires real-time assessment of target activities: diet and exercise. Physical activity can be objectively measured in real time, but diet currently can not. Artificial intelligence (AI) chat bots can measure diet in a low-burden way in real time, then assess the diet and provide feedback to patients.\n\nFew health applications are created with input from end users, which leads to poor acceptability and utility. A co-created, gamified lifestyle-change application could revolutionize lifestyle change, dietary assessment, research, and clinical care.\n\nGamified, Artificial-Intelligence-aided Lifestyle change (GAIL) is a recently-funded project to co-create an AI-based application with the people who would use it. We will recruit clinicians, researchers, and patients (stakeholders) to provide feedback. Initial focus groups will inform the design of the GAIL application. Once a prototype has been developed, the stakeholders will iteratively review the prototype.\n\nAccomplishing the GAIL project will build the foundation for future research, improved clinical lifestyle-related care, low-burden and accurate dietary assessment, and successful lifestyle change, better quality of life, and increased longevity among patients."
+  },
+  {
+    title: "When the Black Box Enters Leisure: A Cognitive\u2013Affective Dual-Path Model of AI-Generated Video and Recovery",
+    authors: "Yiming Huang, Kathleen Keeler",
+    email: null,
+    abstract: "Leisure media is typically assumed to facilitate recovery from work-related strain. However, AI-generated videos may differ from both traditional media and other forms of AI-generated art due to their distinctive characteristics, thereby shaping recovery experiences in unique ways. Drawing on predictive processing theory, we develop a dual-path cognitive\u2013affective model to examine how perceived realism, novelty, and unpredictability of AI videos influence users\u2019 recovery. Specifically, we propose that perceived realism and unpredictability increase uncertainty and vigilance while reducing enjoyment, whereas novelty is expected to heighten all three mechanisms. In turn, uncertainty and vigilance increase cognitive load, whereas enjoyment promotes relaxation.\n\nUsing an archival dataset of user comments from Reddit (N_comments = 12,104; N_posts = 988), we conducted AI-driven content analysis and multilevel modeling to test the proposed model. The results largely support the hypothesized relationships for perceived realism and unpredictability; however, contrary to expectations, novelty does not increase cognitive load. Together, these findings highlight the dual cognitive costs and affective benefits of AI-generated videos, offering a more nuanced understanding of leisure experiences in the age of AI. Future research should adopt experimental methods to more precisely test the causal pathways linking AI video features to recovery experiences."
   }
 ];
 
